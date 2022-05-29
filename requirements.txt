@@ -1,3 +1,4 @@
+camera
 opencv-python
 face_recognition
 flask
