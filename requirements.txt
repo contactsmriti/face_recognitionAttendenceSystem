@@ -1,4 +1,5 @@
 cmake
+Flask==1.1.1
 opencv-python
 face_recognition
 flask
