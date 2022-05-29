@@ -1,0 +1,47 @@
+<style>
+  th[scope="col"] {
+    background-color: #696969;
+    color: #fff;
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+</style>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th class="p-3" scope="col">Name</th>
+      <th class="p-3" scope="col">Time</th>
+      <th class="p-3" scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for x in attendance_list %}
+    <tr>
+      <th scope="row" class="p-3">{{ x[0] }}</th>
+      <td class="p-3">{{ x[1] }}</td>
+      <td class="p-3">{{ x[2] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- <label id="value_lable">
+  <table>
+    <th>Name</th>
+    <th>Time</th>
+    <th>Date</th>
+
+    {% for x in attendance_list %}
+    <tr>
+      <td>{{ x[0] }}</td>
+      <td>{{ x[1] }}</td>
+      <td>{{ x[2] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</label> -->

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <!-- icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+    />
+
+    <title>Attendance</title>
+    <!-- <link rel="stylesheet" href="index.css" /> -->
+
+    <style>
+      body {
+        background-color: antiquewhite;
+      }
+      .button {
+        border: none;
+        border-radius: 25px;
+        padding: 10px 20px;
+        margin: 5px;
+        text-transform: uppercase;
+        background: #8ad1b5;
+        text-align: center;
+        font-weight: 600;
+        color: white;
+      }
+
+      .hvr-float {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+      }
+      .hvr-float:hover,
+      .hvr-float:focus,
+      .hvr-float:active {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+        background-color: #594646;
+      }
+
+      #mainvideodiv {
+        display: none;
+        position: relative;
+        align-items: center;
+      }
+      #done {
+        position: absolute;
+        bottom: 10%;
+        right: 44%;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #cover {
+        margin-top: 15%;
+      }
+      .attendance {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+      .head {
+        margin: 0px;
+        padding: 10px;
+        background-color: #3e2723;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        border-bottom: 5px solid #e2ed2ccc;
+      }
+      #middle {
+        margin: 15px;
+        border: 7px solid #594646;
+        border-radius: 10px;
+      }
+      .atTable {
+        margin: 15px;
+        padding: 5px;
+      }
+      footer {
+        margin-top: auto;
+      }
+      .downfoot {
+        padding: 8px 0;
+        background: #3e2723;
+        color: white;
+      }
+
+      .footer-clean {
+        padding: 50px 0;
+        background-color: #fff;
+        color: #4b4c4d;
+      }
+
+      .footer-clean h3 {
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .footer-clean ul {
+        padding: 0;
+        list-style: none;
+        line-height: 1.6;
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+
+      .footer-clean ul a {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.8;
+      }
+
+      .footer-clean ul a:hover {
+        opacity: 1;
+      }
+
+      .footer-clean .item.social {
+        text-align: right;
+      }
+
+      @media (max-width: 767px) {
+        .footer-clean .item {
+          text-align: center;
+          padding-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer-clean .item.social {
+          text-align: center;
+        }
+      }
+
+      .footer-clean .item.social > a {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        margin-left: 10px;
+        margin-top: 22px;
+        color: inherit;
+        opacity: 0.75;
+      }
+
+      .footer-clean .item.social > a:hover {
+        opacity: 0.9;
+      }
+
+      @media (max-width: 991px) {
+        .footer-clean .item.social > a {
+          margin-top: 40px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .footer-clean .item.social > a {
+          margin-top: 10px;
+        }
+      }
+
+      .footer-clean {
+        margin-top: 14px;
+        margin-bottom: 0;
+        font-size: 13px;
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <h1 class="head">Attendance System with Face Recognition</h1>
+      <div class="attendance">
+        <div>
+          <div id="cover">
+            <button
+              class="button hvr-float"
+              onclick="showmainvideodiv()"
+              type="button"
+            >
+              Open Camera
+            </button>
+          </div>
+          <div id="mainvideodiv">
+            <div id="done">
+              <button class="button hvr-float" onclick="hidemainvideodiv()">
+                Done
+              </button>
+            </div>
+            <img id="middle" src="" />
+          </div>
+        </div>
+
+        <div class="atTable" id="attendance"></div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-clean">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-sm-4 col-md-3 item">
+              <h3>About Smriti</h3>
+              <ul>
+                <li>
+                  <a href="https://contactsmriti.github.io/CV/"
+                    >Personal Site</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-4 col-md-3 item">
+              <h3>Mails</h3>
+              <ul>
+                <li>
+                  <a href="mailto:contact.smritigupta@gmail.com"
+                    >contact.smritigupta@gmail.com</a
+                  >
+                </li>
+                <li>
+                  <a href="mailto:smritig.ug20.cse@nitp.ac.in"
+                    >smritig.ug20.cse@nitp.ac.in</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-3 item social">
+              <a href="https://www.linkedin.com/in/smriti-gupta-820642202/"
+                ><i class="icon ion-social-linkedin"></i></a
+              ><a href="https://github.com/contactsmriti"
+                ><i class="icon ion-social-github"></i></a
+              ><a href="https://g.dev/smrit"
+                ><i class="icon ion-social-google"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="downfoot">
+        <center>
+          <div class="downfoot-wrapper">
+            Copyright ©2022 All rights reserved | This website is made with ♡ by
+            <i>Smriti Gupta</i> on Project <i>Face Recognition</i> being mentee
+            under <i>Microsoft</i>.
+          </div>
+        </center>
+      </div>
+    </footer>
+
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      function getData() {
+        //console.log("hello");
+
+        $.ajax({
+          url: "/get-data",
+          type: "get",
+          success: function (response) {
+            $("#attendance").html(response);
+          },
+          error: function (xhr) {
+            //Do Something to handle error
+          },
+        });
+
+        setTimeout(getData, 2000);
+      }
+
+      getData();
+
+      function showmainvideodiv() {
+        document.getElementById("middle").src = "{{ url_for('video_feed') }}";
+        document.getElementById("mainvideodiv").style.display = "block";
+        document.getElementById("cover").style.display = "none";
+      }
+
+      function hidemainvideodiv() {
+        document.getElementById("middle").src = "";
+        document.getElementById("mainvideodiv").style.display = "none";
+        document.getElementById("cover").style.display = "block";
+      }
+    </script>
+  </body>
+</html>
