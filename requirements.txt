@@ -1,4 +1,4 @@
-camera
-python3-opencv
+
+opencv-python-headless==4.2.0.32
 face_recognition
 flask
