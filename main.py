@@ -1,5 +1,6 @@
 from flask import Flask, render_template, Response
-from camera import VideoCamera, attendance
+from camera import VideoCamera
+import os
 
 app = Flask(__name__)
 
