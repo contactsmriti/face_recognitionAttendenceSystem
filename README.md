@@ -1,7 +1,7 @@
 # face_recognitionAttendenceSystem
 
-(I have added obama and biden images too in datset of images so that user can cross check face recognition without doing any extra effort)
-(user can also add their one clear front image for face recognition) 
+(I have added obama and biden images too in datset of images so that user can cross check face recognition without doing any extra effort as these image can be found easily in internet)
+(user can also add their one clear front image in image folder for face recognition) 
 
 # I used windows machine while working on this project
 
@@ -11,6 +11,8 @@ Requirements:
     on windows: pip install opencv-python
                 pip install face_recognition
              (same way install other libraries)
+             
+  in windows cmake compiler is most of the time not found so for that install visual studio           
      
 To run these files in system.
 Create a folder (eg. project)
