@@ -56,5 +56,5 @@ server will start
    so I added `cmake` in `requirements.txt file` so that it can get installed while deploying  </br>
  but system(azure) was not able to find cmake even after installing ( well it's showing same error which windows OS shows, I corrected that in my OS by downloading Visual Studio and installing required resources from it but don't know what to do here)   </br>
     
-    
+![This is an image](errorMessage.png)
     
