@@ -1,3 +1,6 @@
+# Youtube Link (Video got little long so watch it on 0.75x)
+https://www.youtube.com/watch?v=hIsOw8zOiPQ&feature=youtu.be
+
 # face_recognitionAttendenceSystem
 
 (I have added obama and biden images too in datset of images so that user can cross check face recognition without doing any extra effort as these image can be found easily in internet)\
